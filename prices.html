@@ -21,32 +21,55 @@
 <body>
 
 <header>
-	<nav class="wrapper">
-		<div class="logo"><a href="#">Caelum</a></div>
-		<ul class="navList">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Courses</a></li>
-			<li><a href="#">Events</a></li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Pages</a></li>
-			<li><a href="#">Shortcodes</a></li>
-			<li><a href="#">Shop</a></li>
-		</ul>
-		<ul class="navList">
+<nav id="desktopNavigation">
+		<div class="nav wrapper">
+			<div class="logo"><img src="assets/logo.png"><a href="#top">Caelum</a></div>
+			<ul class="navList">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="index.html#courses">Courses</a></li>
+				<li><a href="index.html#choose">Why Us?</a></li>
+				<li><a href="index.html#events">Events</a></li>
+				<li><a href="prices.html">Prices</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</div>
+		<ul class="navLogin navList">
 			<li><a href="#">Login</a></li>
-			<li class="navListRegister"><a href="#">Register</a></li>
+			<li><a href="#" class="button navListRegister">Register</a></li>
 		</ul>
 	</nav>
-	<div class="headerPrice wrapper">
-		<h1>Price table</h1>
+	<nav id="mobileNavigation">
+		<div class="logoMobile"><a href="index.html">Caelum</a></div>
+		<div class="navBurger">
+			<i class="fa fa-bars" aria-hidden="true" id="burgerIcon"></i>
+			<i class="fa fa-times" aria-hidden="true" id="closeIcon"></i>
+		</div>
+		<div class="navMobile">
+			<div class="nav wrapper">
+				<ul class="navList">
+					<li><a href="#courses">Courses</a></li>
+					<li><a href="#choose">Why Us?</a></li>
+					<li><a href="#events">Events</a></li>
+					<li><a href="/prices.html">Prices</a></li>
+					<li><a href="/about.html">About</a></li>
+				</ul>
+			</div>
+			<ul class="navLogin navList">
+				<li><a href="#">Login</a></li>
+				<li><a href="#" class="button navListRegister">Register</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="headerAbout">
+		<h1>Price Table</h1>
 	</div>
 </header>
 
 <section class="basic wrapper">
 	<div class="basicItem">
 		<h4>Basic 1</h4>
-		<p class="basicPrice">$40</p>
-		<p class="basicPerMont">per month</p>
+		<p class="basicPrice">$<span class="basicPriceNum">40</span></p>
+		<p class="basicPerMonth">per month</p>
 		<ul>
 			<li>Clean design</li>
 			<li>visual page builder</li>
@@ -54,12 +77,14 @@
 			<li>4 portfolio styles</li>
 			<li>pay per use iconmind</li>
 		</ul>
+		<p class="basicBuyNow">
 		<span class="basicButton button">Buy now</span>
+		</p>
 	</div>
-	<div class="basicItem">
+	<div class="basicItemMid">
 		<h4>Basic 2</h4>
-		<p class="basicPrice">$40</p>
-		<p class="basicPerMont">per month</p>
+		<p class="basicPrice">$<span class="basicPriceNum">40</span></p>
+		<p class="basicPerMonth">per month</p>
 		<ul>
 			<li>Clean design</li>
 			<li>visual page builder</li>
@@ -67,12 +92,14 @@
 			<li>3 portfolio styles</li>
 			<li>free iconmind</li>
 		</ul>
+		<p class="basicBuyNow">
 		<span class="basicButton button">Buy now</span>
+		</p>
 	</div>
 	<div class="basicItem">
 		<h4>Basic 3</h4>
-		<p class="basicPrice">$40</p>
-		<p class="basicPerMont">per month</p>
+		<p class="basicPrice">$<span class="basicPriceNum">40</span></p>
+		<p class="basicPerMonth">per month</p>
 		<ul>
 			<li>Clean design</li>
 			<li>visual page builder</li>
@@ -80,142 +107,147 @@
 			<li>2 portfolio styles</li>
 			<li>free iconmind</li>
 		</ul>
+		<p class="basicBuyNow">
 		<span class="basicButton button">Buy now</span>
+		</p>
 	</div>
 </section>
 
-<section class="plans wrapper">
-	<div class="plansItem">
-		<p class="plansPrice">$40</p>
-		<p class="plansPerMont">per month</p>
-		<h4>Basic</h4>
-		<ul>
-			<li>Clean design</li>
-			<li>visual page builder</li>
-			<li>30+ shortcode modules</li>
-			<li>4 portfolio styles</li>
-			<li>pay per use iconmind</li>
-		</ul>
-		<div class="plansStars">
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
+<section class="plans">
+	<div class="wrapper plansBox clearfix">
+		<div class="plansItem">
+			<p class="plansPrice">$<span class="plansPriceNum">40</span></p>
+			<p class="plansPerMonth">per month</p>
+			<h3>Basic</h3>
+			<ul>
+				<li>Clean design</li>
+				<li>visual page builder</li>
+				<li>30+ shortcode modules</li>
+				<li>4 portfolio styles</li>
+				<li>pay per use iconmind</li>
+			</ul>
+			<div class="plansStars">
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<div class="plansButtonBox"><span class="plansButton button">Buy now</span></div>
 		</div>
-		<span class="plansButton button">Buy now</span>
-	</div>
-	<div class="plansItem">
-		<p class="plansPrice">$50</p>
-		<p class="plansPerMont">per month</p>
-		<h4>Silver</h4>
-		<ul>
-			<li>Clean design</li>
-			<li>visual page builder</li>
-			<li>30+ shortcode modules</li>
-			<li>5 portfolio styles</li>
-			<li>pay per use iconmind</li>
-		</ul>
-		<div class="plansStars">
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
+		<div class="plansItem">
+			<p class="plansPrice">$<span class="plansPriceNum">50</span></p>
+			<p class="plansPerMonth">per month</p>
+			<h3>Silver</h3>
+			<ul>
+				<li>Clean design</li>
+				<li>visual page builder</li>
+				<li>30+ shortcode modules</li>
+				<li>5 portfolio styles</li>
+				<li>pay per use iconmind</li>
+			</ul>
+			<div class="plansStars">
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<div class="plansButtonBox"><span class="plansButton button">Buy now</span></div>
 		</div>
-		<span class="plansButton button">Buy now</span>
-	</div>
-	<div class="plansItem">
-		<p class="plansPrice">$60</p>
-		<p class="plansPerMont">per month</p>
-		<h4>Gold</h4>
-		<ul>
-			<li>Clean design</li>
-			<li>visual page builder</li>
-			<li>30+ shortcode modules</li>
-			<li>6 portfolio styles</li>
-			<li>pay per use iconmind</li>
-		</ul>
-		<div class="plansStars">
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
+		<div class="plansItem">
+			<p class="plansPrice">$<span class="plansPriceNum">60</span></p>
+			<p class="plansPerMonth">per month</p>
+			<h3>Gold</h3>
+			<ul>
+				<li>Clean design</li>
+				<li>visual page builder</li>
+				<li>30+ shortcode modules</li>
+				<li>6 portfolio styles</li>
+				<li>pay per use iconmind</li>
+			</ul>
+			<div class="plansStars">
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<div class="plansButtonBox"><span class="plansButton button">Buy now</span></div>
 		</div>
-		<span class="plansButton button">Buy now</span>
-	</div>
-	<div class="plansItem">
-		<p class="plansPrice">$70</p>
-		<p class="plansPerMont">per month</p>
-		<h4>Ultimate</h4>
-		<ul>
-			<li>Clean design</li>
-			<li>visual page builder</li>
-			<li>30+ shortcode modules</li>
-			<li>8 portfolio styles</li>
-			<li>pay per use iconmind</li>
-		</ul>
-		<div class="plansStars">
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
-			<i class="fa fa-star-o" aria-hidden="true"></i>
+		<div class="plansItem">
+			<p class="plansPrice">$<span class="plansPriceNum">70</span></p>
+			<p class="plansPerMonth">per month</p>
+			<h3>Ultimate</h3>
+			<ul>
+				<li>Clean design</li>
+				<li>visual page builder</li>
+				<li>30+ shortcode modules</li>
+				<li>8 portfolio styles</li>
+				<li>pay per use iconmind</li>
+			</ul>
+			<div class="plansStars">
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+			</div>
+			<div class="plansButtonBox"><span class="plansButton button">Buy now</span></div>
 		</div>
-		<span class="plansButton button">Buy now</span>
 	</div>
-
 </section>
 
-<section class="footer wrapper">
-	<div class="footerAbout">
-		<h4>About us</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem numquam, laboriosam a, aliquid molestiae officiis consequatur debitis id qui quod mollitia hic labore. </p>
-	</div>
-	<div class="footerCommunity">
-		<h4>community</h4>
-		<ul>
-			<li><a href="#">How it works</a></li>
-			<li><a href="#">News and media</a></li>
-			<li><a href="#">Usage policy</a></li>
-		</ul>
-	</div>
-	<div class="footerHelp">
-		<h4>help</h4>
-		<ul>
-			<li><a href="#">FAQ</a></li>
-			<li><a href="#">Contact us</a></li>
-			<li><a href="#">Site map</a></li>
-			<li><a href="#">Company details</a></li>
-			<li><a href="#">Careers</a></li>
-		</ul>
-	</div>
-	<div class="footerFollow">
-		<h4>follow us</h4>
-		<ul>
-			<li><a href="#">Facebook</a></li>
-			<li><a href="#">Twitter</a></li>
-			<li><a href="#">Pinterest</a></li>
-			<li><a href="#">Vimeo</a></li>
-			<li><a href="#">Youtube</a></li>
-		</ul>
-	</div>
-	<div class="footerTweets">
-		<h4>recent twitter</h4>
-		<div class="footerTweetsItem">
-			<i class="fa fa-twitter" aria-hidden="true"></i>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem assumenda, amet incidunt quaestinctio.</p>
+<section class="footer">
+	<div class="footerWrapper wrapper">
+		<div class="footerAbout">
+			<h4>About us</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem numquam, laboriosam a, aliquid molestiae officiis consequatur debitis id qui quod mollitia hic labore. </p>
 		</div>
-		<div class="footerTweetsItem">
-			<i class="fa fa-twitter" aria-hidden="true"></i>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi veniam qui quae debitis libero.</p>
+		<div class="footerCommunity">
+			<h4>community</h4>
+			<ul>
+				<li><a href="#">How it works</a></li>
+				<li><a href="#">News and media</a></li>
+				<li><a href="#">Usage policy</a></li>
+			</ul>
+		</div>
+		<div class="footerHelp">
+			<h4>help</h4>
+			<ul>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Contact us</a></li>
+				<li><a href="#">Site map</a></li>
+				<li><a href="#">Company details</a></li>
+				<li><a href="#">Careers</a></li>
+			</ul>
+		</div>
+		<div class="footerFollow">
+			<h4>follow us</h4>
+			<ul>
+				<li><a href="#">Facebook</a></li>
+				<li><a href="#">Twitter</a></li>
+				<li><a href="#">Pinterest</a></li>
+				<li><a href="#">Vimeo</a></li>
+				<li><a href="#">Youtube</a></li>
+			</ul>
+		</div>
+		<div class="footerTweets">
+			<h4>recent twitter</h4>
+			<div class="footerTweetsItem">
+				<i class="fa fa-twitter" aria-hidden="true"></i>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem assumenda, amet incidunt quaestinctio.</p>
+			</div>
+			<div class="footerTweetsItem">
+				<i class="fa fa-twitter" aria-hidden="true"></i>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi veniam qui quae debitis libero.</p>
+			</div>
 		</div>
 	</div>
 </section>
 
 <footer>
-	&copy:2017 Cealum. All rights reserved.
+	&copy 2017 Cealum. All rights reserved.
 </footer>
 
 <!-- jquery -->

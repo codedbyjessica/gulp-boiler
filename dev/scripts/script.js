@@ -1,15 +1,13 @@
 var app =[];
 var myNav = {}; 
-var portfolio = {};
-var research ={};
+var choose = {};
+var news ={};
+var about ={};
 var mobileNav = {};
 
 /////Smooth Scroll
 myNav.smoothScroll = function () {
 	$("a").click(function() {
-		//replace the first forward slash (/) in the pathname for the current location
-		//compare it to the link that's been clicked
-		//check link matches current domain
 		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 			// Assign the variable target, with the hash of the link that's been clicked (i.e. #hash)
 			var target = $(this.hash);
@@ -22,26 +20,11 @@ myNav.smoothScroll = function () {
 				}, 500);
 				return false;
 			}
-		}
-	});
+	};
+
+})
 };
 
-
-myNav.colorChange = function(){
-	$(window).on("scroll", function(){
-		myNav.navPosition = $("body").scrollTop();
-		myNav.navHeight = $(".navTop").height();
-
-		if(myNav.navPosition > myNav.navHeight){
-			$(".navTop").removeClass("navTopAtTop");
-			$(".logoTop").removeClass("logoAtTop")
-		}else{
-			$(".navTop").addClass("navTopAtTop");
-			$(".logoTop").addClass("logoAtTop")
-		}
-	})
-
-}
 
 var navItems = $('.menu a');
 // gotta store link hrefs
@@ -82,47 +65,53 @@ myNav.itemColorChange = function () {
 	});
 };
 
-portfolio.pages = function(){
-	$("#portfolioAnimation").show();
-	$("a.portfolioLink").on("click", function() {
+choose.pages = function(){
+	$("#chooseTestimonials1").show();
+	$("a.chooseTestimonialsLink").on("click", function() {
 			var targetPage = $(this.hash)
-			$(".portfolioGroup").hide();
+			$(".chooseTestimonialsText").hide();
 			targetPage.fadeIn();
-			$(".portfolioLink").removeClass("current");
-			$(this).addClass("current");
+			$(".chooseTestimonialsLink").removeClass("chooseImgActive");
+			$(this).addClass("chooseImgActive");
+			$('html,body').stop()
 	});
 };
 
-research.pages = function(){
-	$("#moreDetails").on("click", function(e) {
-		$("#detailsTab").slideUp();
-		$("#detailsContent").slideDown();
-	});
-
-	$("#lessDetails").on("click", function(e) {
-		$("#detailsContent").slideUp();
-		$("#detailsTab").slideDown();
+news.pages = function(){
+	$("#eventNewsBox1").show();
+	$("a.eventNewsLink").on("click", function() {
+			var targetPage = $(this.hash)
+			$(".eventNewsItem").hide();
+			targetPage.fadeIn();
+			$(".eventNewsLink").removeClass("eventNewsActive");
+			$(this).addClass("eventNewsActive");
+			$('html,body').stop()
 	});
 };
 
+about.pages = function(){
+	$("#aboutTestimonials1").show();
+	$("a.aboutTestimonialsLink").on("click", function() {
+			var targetPage = $(this.hash)
+			$(".aboutTestimonialsItem").hide();
+			targetPage.fadeIn();
+			$(".aboutTestimonialsLink").removeClass("aboutTestimonialsActive");
+			$(this).addClass("aboutTestimonialsActive");
+			$('html,body').stop()
+	});
+};
 
 mobileNav.slide = function(){
-
-
-		$("#burgerIcon").on("click", function(){
-			$(".navMobile").slideDown();
-			$(".burgerIcon").hide();
-			$("#closeMenu").fadeIn();
-		})
-		$("section, header, a, #closeMenu").on("click", function(){
-			$(".navMobile").slideUp();
-			$("#closeMenu").hide();
-			$(".burgerIcon").fadeIn();
-		})
-
-
-
-
+	$("#burgerIcon").on("click", function(){
+		$("#burgerIcon").hide();
+		$(".navMobile").show();
+		$("#closeIcon").fadeIn();
+	})
+	$("#closeIcon, section, a, .headerMain").on("click", function(){
+		$(".navMobile").hide();
+		$("#closeIcon").hide();
+		$("#burgerIcon").fadeIn();
+	})
 
 }
 
@@ -130,11 +119,11 @@ mobileNav.slide = function(){
 
 
 app.init = function () {
-	myNav.colorChange();
 	myNav.itemColorChange();
 	myNav.smoothScroll();
-	portfolio.pages();
-	research.pages();
+	choose.pages();
+	news.pages();
+	about.pages();
 	mobileNav.slide();
 };
 
@@ -143,24 +132,4 @@ $(function () {
 });
 
 new WOW().init();
-
-
-
-$('.video').fancybox({
-	'transitionIn': 'elastic',
-	loop: false,
-	arrows: false,
-	helpers: {
-	media: {},
-	overlay: {locked: false}
-	}
-});
-
-$('.fancyimg').fancybox({
-	'transitionIn': 'elastic',
-	loop: false,
-	helpers: {
-	overlay: {locked: false}
-	}
-});
 

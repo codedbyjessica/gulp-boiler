@@ -18,26 +18,47 @@
 
 </head>
 
-<body>
+<body id="top">
 
 <header>
-	<nav>
+	<nav id="desktopNavigation">
 		<div class="nav wrapper">
-			<div class="logo"><img src="assets/logo.png"><a href="#">Caelum</a></div>
+			<div class="logo"><img src="assets/logo.png"><a href="#top">Caelum</a></div>
 			<ul class="navList">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Courses</a></li>
-				<li><a href="#">Events</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Pages</a></li>
-				<li><a href="#">Shortcodes</a></li>
-				<li><a href="#">Shop</a></li>
+				<li><a href="#top">Home</a></li>
+				<li><a href="#courses">Courses</a></li>
+				<li><a href="#choose">Why Us?</a></li>
+				<li><a href="#events">Events</a></li>
+				<li><a href="/prices.html">Prices</a></li>
+				<li><a href="/about.html">About</a></li>
 			</ul>
 		</div>
 		<ul class="navLogin navList">
 			<li><a href="#">Login</a></li>
-			<li class="navListRegister"><a href="#">Register</a></li>
+			<li><a href="#" class="button navListRegister">Register</a></li>
 		</ul>
+	</nav>
+	<nav id="mobileNavigation">
+		<div class="logoMobile"><a href="index.html">Caelum</a></div>
+		<div class="navBurger">
+			<i class="fa fa-bars" aria-hidden="true" id="burgerIcon"></i>
+			<i class="fa fa-times" aria-hidden="true" id="closeIcon"></i>
+		</div>
+		<div class="navMobile">
+			<div class="nav wrapper">
+				<ul class="navList">
+					<li><a href="#courses">Courses</a></li>
+					<li><a href="#choose">Why Us?</a></li>
+					<li><a href="#events">Events</a></li>
+					<li><a href="/prices.html">Prices</a></li>
+					<li><a href="/about.html">About</a></li>
+				</ul>
+			</div>
+			<ul class="navLogin navList">
+				<li><a href="#">Login</a></li>
+				<li><a href="#" class="button navListRegister">Register</a></li>
+			</ul>
+		</div>
 	</nav>
 	<div class="headerMain wrapper">
 		<img src="assets/hero.png">
@@ -63,6 +84,8 @@
 		</div>
 	</div>
 </header>
+
+<div class="backToTop"><span class="backToTopIcon"><a href="#top"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a></span></div>
 
 <section class="ourCourseOnline wrapper">
 	<div>
@@ -98,7 +121,7 @@
 	</div>
 </section>
 
-<section class="popularCourses wrapper clearfix">
+<section class="popularCourses wrapper clearfix" id="courses">
 	<h1 class="h1BothLines">Popular Courses</h1>
 	<div class="popularCoursesItem">
 		<span class="popularCoursesPrice">$100</span>
@@ -181,7 +204,7 @@
 	</div>
 </article>
 
-<section class="choose wrapper">
+<section class="choose clearfix" id="choose">
 	<h1 class="h1RightLine">Why choose us</h1>
 	<aside class="chooseBox">
 		<div class="chooseItem clearfix">
@@ -208,11 +231,11 @@
 	</aside>
 	<aside class="chooseTestimonials">
 		<div class="chooseTestimonialsImg">
-			<img src="assets/indexperson1.png" class="chooseImgActive">
-			<img src="assets/indexperson2.png">
-			<img src="assets/indexperson3.png">
+			<a href="#chooseTestimonials1" class="chooseTestimonialsLink chooseImgActive"><img src="assets/indexperson1.png"></a>
+			<a href="#chooseTestimonials2" class="chooseTestimonialsLink"><img src="assets/indexperson2.png"></a>
+			<a href="#chooseTestimonials3" class="chooseTestimonialsLink"><img src="assets/indexperson3.png"></a>
 		</div>
-		<div class="chooseTestimonialsText">
+		<div class="chooseTestimonialsText" id="chooseTestimonials1">
 			<p>
 				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nemo voluptas laudantium, possimus veniam nulla dolorum minus ipsa accusantium exercitationem esse placeat doloremque harum eum, architecto voluptatum neque obcaecati iusto. - Thank you"
 			</p>
@@ -221,16 +244,26 @@
 				photographer
 			</span>
 		</div>
+		<div class="chooseTestimonialsText" id="chooseTestimonials2">
+			<p>
+				"Soluta nemo voluptas laudantium, possimus veniam nulla dolorum minus ipsa accusantium exercitationem esse placeat doloremque harum eum, architecto voluptatum neque obcaecati iusto. - Thank you"
+			</p>
+			<h4>Rich Langle</h4>
+			<span class="chooseTestimonialsTextTagline">
+				developer
+			</span>
+		</div>
+		<div class="chooseTestimonialsText" id="chooseTestimonials3">
+			<p>
+				"Exercitationem esse placeat doloremque harum eum, architecto voluptatum neque obcaecati iusto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nemo voluptas laudantium, possimus veniam nulla dolorum minus ipsa accusantium  - Thank you"
+			</p>
+			<h4>Richie Lang</h4>
+			<span class="chooseTestimonialsTextTagline">
+				designer
+			</span>
+		</div>
 	</aside>
 </section>
-<!-- <h4>Richard Langle</h4>
-<span class="popularCoursesPeopleDescriptionTagline">
-	Researcher
-</span>
-<h4>Richie Lang</h4>
-<span class="popularCoursesPeopleDescriptionTagline">
-	Developer
-</span> -->
 
 <section class="learnAnytime">
 	<div class="wrapper">
@@ -240,7 +273,7 @@
 	</div>
 </section>
 
-<section class="events wrapper">
+<section class="events wrapper" id="events">
 	<aside class="eventsBox">
 		<h1 class="h1RightLine">Events</h1>
 		<div class="eventsItem clearfix">
@@ -293,11 +326,12 @@
 	<aside class="eventsNews">
 		<h1 class="h1RightLine">News</h1>
 		<span class="eventsNewsPageLink">
-			<a href="#">1</a>
-			<a href="#">2</a>
+			<a href="#eventNewsBox1" class="eventNewsLink eventNewsActive">1</a>
+			<a href="#eventNewsBox2" class="eventNewsLink">2</a>
+			<a href="#eventNewsBox3" class="eventNewsLink">3</a>
 		</span>
 		<div class="eventsNewsBox">
-			<div id="eventNewsBox1">
+			<div class="eventNewsItem" id="eventNewsBox1">
 				<div class="eventNewsBoxText">
 					<p class="eventNewsBoxTextTime">
 						<span><i class="fa fa-calendar" aria-hidden="true"></i>May 20th, 2016</span>
@@ -305,6 +339,28 @@
 					</p>
 					<p>
 						web development reading list: accessible web components and CSS and SASS precision
+					</p>
+				</div>
+			</div>
+			<div class="eventNewsItem" id="eventNewsBox2">
+				<div class="eventNewsBoxText">
+					<p class="eventNewsBoxTextTime">
+						<span><i class="fa fa-calendar" aria-hidden="true"></i>May 24th, 2016</span>
+						<span><i class="fa fa-user" aria-hidden="true"></i>Ruse Weagly</span>
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt?
+					</p>
+				</div>
+			</div>
+			<div class="eventNewsItem" id="eventNewsBox3">
+				<div class="eventNewsBoxText">
+					<p class="eventNewsBoxTextTime">
+						<span><i class="fa fa-calendar" aria-hidden="true"></i>May 25th, 2016</span>
+						<span><i class="fa fa-user" aria-hidden="true"></i>Rule Weagly</span>
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, odio.
 					</p>
 				</div>
 			</div>
@@ -379,7 +435,7 @@
 </section>
 
 <footer>
-	&copy:2017 Cealum. All rights reserved.
+	&copy 2017 Cealum. All rights reserved.
 </footer>
 
 <!-- jquery -->
@@ -387,7 +443,7 @@
 <!-- wow -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <!-- mine -->
-<!-- <script src="public/scripts/script.js"></script> -->
+<script src="public/scripts/script.js"></script>
 
 <script>
 	$(".headerMainSearch").on("submit", function(e){

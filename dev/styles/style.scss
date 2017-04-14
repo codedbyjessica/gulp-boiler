@@ -1,5 +1,10 @@
 @import "partials/norm";
 
+$breakMobile: 480px;
+$breakSmall: 690px;
+$breakMedium: 768px;
+$breakLarge: 940px;
+
 $colorMain: #F8C212;
 $colorDark: #000;
 $colorLight: #FFF;
@@ -14,7 +19,17 @@ $navHeight: 60px;
 $headerBottomHeight: 120px;
 $headerOtherHeight: $navHeight + $headerBottomHeight;
 
+$wrapperWidth: 70%;
+$chooseUsMargin: (100% - $wrapperWidth)*0.5;
+
+$mobileNavColor: rgba(255, 255, 255, 0.98);
+$mobileNavColorEven: rgba(240, 240, 240, 0.98);
+
 //globals
+
+*{
+	transition: all 0.3s ease;
+}
 
 html{
 	font-family: 'Open Sans', sans-serif;
@@ -29,6 +44,10 @@ body{
 
 a{
 	text-decoration: none;
+	color: $colorDark;
+	&:hover{
+		color: $colorMain;
+	}
 }
 
 ul{
@@ -95,25 +114,107 @@ img{
 }
 
 .wrapper{
-	width: 70%;
+	width: $wrapperWidth;
 	margin: 0 auto;
-	max-width: 1200px;
+	@media screen and (max-width: $breakLarge){
+		$wrapperWidth: 90%;
+		$chooseUsMargin: (100% - $wrapperWidth)*0.5;
+		width: $wrapperWidth;
+	}
 }
 
 .icon{
 	background-color: $colorMain;
 	text-align: center;
-	padding: 10px;
+	padding: 9px 10px;
 	border-radius: 50%;
 	font-weight: bold;
 	display: inline-block;
 }
 
-.mission, .learnAnytime{
+.button{
+	padding: 8px 30px;
+	border-radius: 20px;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.eventsItemIcon .icon{
+	background-color: $colorMain;
+	text-align: center;
+	padding: 6px 10px;
+	border-radius: 50%;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.mission, .learnAnytime, .plans{
 	background: $colorMediumLight;
 }
 
+.backToTop{
+	font-size: 3.6rem;
+	position: relative;
+	.backToTopIcon{
+		position: fixed;
+		z-index: 100;
+		right: 10px;
+		bottom: 10px;
+	}
+	.fa{
+		color: $colorMedium;
+		@media screen and (max-width: $breakSmall){
+			display: none;
+		}
+		&:hover{
+			color: $colorMain;
+		}
+	}
+}
+
 // N A V 
+
+#desktopNavigation{
+	display: block;
+	@media screen and (max-width: $breakSmall){
+		display: none;
+	}
+}
+
+#mobileNavigation{
+	display: none;
+	@media screen and (max-width: $breakSmall){
+		display: block;
+	}
+}
+
+.navBurger{
+	display: none;
+	@media screen and (max-width: $breakSmall){
+		display: block;
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		z-index: 99;
+	}
+	.fa{
+		font-size: 3rem;
+		color: $colorDark;
+		&:hover{
+			color: $colorMedium;
+			cursor: pointer;
+		}
+	}
+	#closeIcon{
+		display: none;
+	}
+}
+
 nav{
 	text-transform: uppercase;
 	font-weight: 800;
@@ -121,24 +222,78 @@ nav{
 	font-size: 1.2rem;
 	position: relative;
 	height: $navHeight;
+	@media screen and (max-width: $breakSmall){
+		position: fixed;
+		background-color: $colorMain;
+		width: 100%;
+		z-index: 99;
+	}
 	a{
 		color: $colorMedium;
 		margin-left: 14px;
+		@media screen and (max-width: $breakMedium){
+			margin-left: 10px;
+		}
+		@media screen and (max-width: $breakSmall){
+			margin: 0;
+			display: block;
+			padding: 10px;
+			background-color: $mobileNavColor;
+		}
 		&:hover{
 			color: $colorMain;
+		}
+	}
+	li:nth-of-type(even){
+		a{
+			@media screen and (max-width: $breakSmall){
+				background-color: $mobileNavColorEven;
+			}
+		}
+
+	}
+	.wrapper{
+		@media screen and (max-width: $breakLarge){
+			width: 70%;
+			margin: 0;
+		}
+		@media screen and (max-width: $breakMedium){
+			width: 75%;
+			margin: 0;
+		}
+		@media screen and (max-width: $breakSmall){
+			width: 100%;
+		}
+	}
+	.navMobile{
+		@media screen and (max-width: $breakSmall){
+			display: none;
+			text-align: center;
 		}
 	}
 	.nav{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		margin-top: 12px;
+		@media screen and (max-width: $breakSmall){
+			display: block;
+			margin: 0;
+		}
 	}
 	.navList li{
 		display: inline-block;
+		@media screen and (max-width: $breakSmall){
+			display: block;
+			border-bottom: 1px solid $colorMediumLight;
+		}
 	}
 	.logo{
 		display: flex;
 		align-items:center;
+		@media screen and (max-width: $breakSmall){
+			display: none;
+		}
 		a{
 			margin-left: 0;
 			font-size: 1.8rem;
@@ -146,13 +301,62 @@ nav{
 		}
 		img{
 			width: 50px;
+			padding: 5px;
+		}
+	}
+	.logoMobile{
+		display:none;
+		@media screen and (max-width: $breakSmall){
+			display: block;
+			text-align: center;
+			margin: 15px 0;
+			font-size: 1.8rem;
+			a{
+				background-color: transparent;
+				color: $colorDark;
+				padding: 0;
+				&:hover{
+					color: $colorMedium;
+				}
+			}
 		}
 	}
 	.navLogin{
 		position: absolute;
 		right: 0;
 		top: 0;
-		padding: 15px;
+		padding: 11px 0;
+		@media screen and (max-width: $breakSmall){
+			position: static;
+			background-color: $mobileNavColor;
+			border-bottom: 2px solid $colorMain;
+			li a{
+				margin: 0;
+				border:none;
+				display: inline-block;
+				background-color: transparent;
+			}
+		}
+		.navListRegister{
+			background-color: $colorMain;
+			color: $colorDark;
+			margin: 0 10px;
+			padding: 8px 10px;
+			@media screen and (max-width: $breakSmall){
+				color: $colorMedium;
+				background-color: transparent;
+				padding: 0;
+				margin: 0;
+			}
+			&:hover{
+				background-color: $colorDark;
+				color: $colorMain;
+				@media screen and (max-width: $breakSmall){
+					background-color: transparent;
+					padding: 0;
+				}
+			}
+		}
 	}
 }
 
@@ -184,11 +388,15 @@ header{
 				width: 100%;
 				padding: 6px;
 				outline: none;
+				border: 1px solid $colorMedium;
+				&:focus{
+					border: 1px solid $colorMain;
+				}
 			}
 			label{
 				position: absolute;
 				z-index: 9;
-				bottom:10px;
+				bottom:5px;
 				right: 10px;
 				cursor: pointer;
 				color: $colorMain;
@@ -204,11 +412,20 @@ header{
 	.headerBottom{
 		min-height: $headerBottomHeight;
 		display: flex;
+		@media screen and (max-width: $breakMobile){
+			flex-direction: column;
+		}
 		.headerBottomBox{
 			width: 25%;
 			float:left;
 			background-color: $colorMain;
 			padding: 20px;
+			@media screen and (max-width: $breakMedium){
+				width: 50%;
+			}
+			@media screen and (max-width: $breakMobile){
+				width: 100%;
+			}
 			p{
 				color: $colorLight;
 			}
@@ -220,6 +437,14 @@ header{
 			width: 75%;
 			float: right;
 			background-color: $colorMediumLight;
+			@media screen and (max-width: $breakMedium){
+				flex-direction: column;
+				width: 50%;
+			}
+			@media screen and (max-width: $breakMobile){
+				width: 100%;
+				flex-direction: row;
+			}
 			p{
 				display: inline-block;
 				background-color: $colorLight;
@@ -228,7 +453,13 @@ header{
 				font-size: 1rem;
 				font-weight: bold;
 				box-shadow: 5px 5px 50px $colorMedium;
-				&:hoveR{
+				@media screen and (max-width: $breakLarge){
+					padding: 10px;
+				}
+				@media screen and (max-width: $breakMedium){
+					display: block;
+				}
+				&:hover{
 					color: $colorLight;
 					background-color: $colorDark;
 				}
@@ -243,7 +474,14 @@ header{
 	div{
 		width: 25%;
 		text-align: center;
-	}
+		@media screen and (max-width: $breakMedium){
+			width: 50%;
+			margin-top: 20px;
+		}
+		@media screen and (max-width: $breakMobile){
+			width: 100%;
+		}
+}
 }
 
 .mission{
@@ -252,8 +490,22 @@ header{
 	background-position: top right;
 	background-size: 45%;
 	background-repeat: no-repeat;
+	@media screen and (max-width: $breakMedium){
+		background-position: right;
+		background-size: 30%;
+	}
+	@media screen and (max-width: $breakMobile){
+		background-image: none;
+		padding: 10px 0 30px;
+	}
 	p{
 		width: 40%;
+		@media screen and (max-width: $breakMedium){
+			width: 60%;
+		}
+		@media screen and (max-width: $breakMobile){
+			width: 100%;
+		}
 	}
 }
 
@@ -266,7 +518,7 @@ header{
 			position: absolute;
 			top:-24px;
 			left: 24px;
-			padding: 12px 6px;
+			padding: 10px 6px;
 			font-weight: bold;
 			background: $colorMain;
 			border-radius: 50%;
@@ -290,6 +542,10 @@ header{
 		.popularCoursesPeopleMore{
 			text-align: right;
 			width: 15%;
+			.fa:hover{
+				background-color: $colorDark;
+				color: $colorMain;
+			}
 		}
 	}
 }
@@ -298,12 +554,20 @@ header{
 	float:left;
 	width: calc(33.33% - 10px);
 	position: relative;
+	img{
+		width: 100%;
+	}
 	&:nth-of-type(2){
 		margin: 0 15px;
 	}
+	@media screen and (max-width: $breakSmall){
+		width: 100%;
+		float: none;
+		margin: 60px 0;
+	}
 }
 
-.popularCoursesPeopleDescriptionTagline, .LearnAnytimeTagline, .chooseTestimonialsTextTagline{
+.aboutTestimonialsTagline, .popularCoursesPeopleDescriptionTagline, .LearnAnytimeTagline, .chooseTestimonialsTextTagline{
 	font-style: italic;
 	text-transform: capitalize;
 	color: $colorMedium;
@@ -311,17 +575,30 @@ header{
 
 .numbers{
 	display: flex;
+	flex-wrap:wrap;
 	.numbersBox{
 		width: 25%;
 		text-align: center;
 		line-height: 3.5rem;
 		padding: 30px 0;
+		@media screen and (max-width: $breakSmall){
+			width: 50%;
+		}
 		&:nth-of-type(odd){
 			background: $colorMain
 		}
 		&:nth-of-type(even){
 			background: $colorDark;
 			color: $colorLight;
+		}
+		@media screen and (max-width: $breakSmall){
+			&:nth-of-type(odd), &:nth-of-type(even){
+				background: $colorMain
+			}
+			&:nth-of-type(2), &:nth-of-type(3){
+				background: $colorDark;
+				color: $colorLight;
+			}
 		}
 		.numbersNumerals{
 			font-size: 3.4rem;
@@ -332,10 +609,23 @@ header{
 }
 
 .choose{
-	position: relative;
+	h1{
+		margin-left: $chooseUsMargin;
+	}
 	.chooseBox{
-		width: 50%;
+		width: calc(50% - #{$chooseUsMargin});
 		padding-right: 50px; 
+		margin-left: $chooseUsMargin;
+		float: left;
+		@media screen and (max-width: $breakLarge){
+			$wrapperWidth: 90%;
+			$chooseUsMargin: (100% - $wrapperWidth)*0.5;
+			width: calc(50% - #{$chooseUsMargin});
+			margin-left: $chooseUsMargin;
+		}
+		@media screen and (max-width: $breakSmall){
+			width: 100%;
+		}
 	}
 	.chooseItem{
 		padding: 10px 0;
@@ -344,7 +634,7 @@ header{
 		}
 		.chooseItemIcon{
 			float: left;
-			width: calc(15%);
+			width: 15%;
 			margin-top: 18px;
 		}
 		.chooseContent{
@@ -353,15 +643,18 @@ header{
 		}
 	}
 	.chooseTestimonials{
-		width: 71.4%;
+		width: 50%;
 		padding: 40px;
 		background-color: $colorMain;
-		position: absolute;
-		right: -21.4%;
-		top: 180px;
+		float:right;
+		position: relative;
+		@media screen and (max-width: $breakSmall){
+			margin-top: 60px;
+			width: 100%;
+		}
 		p{
 			margin-top: 20px;
-			width: 66%;
+			width: 70%;
 		}
 		h4{
 			padding-top: 10px;
@@ -369,17 +662,24 @@ header{
 		h4, .chooseTestimonialsTextTagline{
 			color: $colorLight;
 		}
+		.chooseTestimonialsText{
+			display: none;
+		}
 		.chooseTestimonialsImg{
 			position: absolute;
 			top: -38px;
+			@media screen and (max-width: $breakMedium){
+				top: -25px;
+			}
 			img{
 				width: 8%;
-				margin: 4% 0;
-				margin-left: 20px;
+				margin: 4% 10px;
 			}
 			.chooseImgActive{
-				width: 16%;
-				margin: 0;
+				img{
+					width: 16%;
+					margin: 0;
+				}
 			}
 		}
 	}
@@ -395,9 +695,15 @@ header{
 
 .events{
 	display: flex;
+	@media screen and (max-width: $breakSmall){
+		flex-direction: column;
+	}
 	.eventsBox{
 		width: 50%;
 		padding-right: 40px;
+		@media screen and (max-width: $breakSmall){
+			width: 100%;
+		}
 		.eventsItem{
 			padding: 10px 0;
 			.eventsItemIcon{
@@ -415,6 +721,9 @@ header{
 				padding-left: 20px;
 				.eventsTagline{
 					color: $colorMedium;
+					.fa-location-arrow{
+						margin-left: 20px;
+					}
 				}
 				p{
 					margin-top: 10px;
@@ -425,9 +734,15 @@ header{
 	.eventsNews{
 		width: 50%;
 		position: relative;
+		@media screen and (max-width: $breakSmall){
+			width: 100%;
+			height: 500px;
+		}
 		.eventsNewsPageLink{
 			position: absolute;
-			background: purple;
+			top: 30px;
+			right: 0;
+			font-size: 2rem;
 		}
 		.eventsNewsBox{
 			height: calc(100% - 80px);
@@ -442,24 +757,68 @@ header{
 				}
 				.eventNewsBoxTextTime{
 					border-bottom: 1px solid $colorLight;
+					i{
+						margin-right: 10px;
+					}
+					.fa-user{
+						margin-left: 20px;
+					}
 				}
 			}
 		}
 	}
 }
 
-#eventNewsBox1{
+.eventNewsItem{
+	display: none;
+}
+
+.eventNewsLink{
+	color:$colorMain;
+	margin-left: 10px;
+	&:hover{
+		color: $colorDark;
+	}
+}
+
+.eventNewsActive{
+	color:$colorMedium;
+	cursor: default;
+	&:hover{
+		color: $colorMedium;
+	}
+}
+
+#eventNewsBox1, #eventNewsBox2, #eventNewsBox3{
 	height: 100%;
+	background-repeat: no-repeat;
+}
+
+#eventNewsBox1{
 	background-image: url("../../assets/indexnews.jpg");
+}
+
+#eventNewsBox2{
+	background-image: url("../../assets/indexnews2.jpg");
+}
+
+#eventNewsBox3{
+	background-image: url("../../assets/indexnews3.jpg");
 }
 
 .contact{
 	display: flex;
+	@media screen and (max-width: $breakSmall){
+		flex-direction: column;
+	}
 	.contactItem{
 		width: 33.33%;
 		text-align: center;
 		line-height: 2.6rem;
 		padding: 30px 0;
+		@media screen and (max-width: $breakSmall){
+			width: 100%;
+		}
 		&:nth-of-type(odd){
 			background: $colorMain
 		}
@@ -488,11 +847,26 @@ header{
 	}
 	.footerWrapper{
 		display: flex;
+		@media screen and (max-width: $breakSmall){
+			flex-direction: column;
+			h4{
+				margin-top: 30px;
+			}
+		}
 		.footerAbout, .footerTweets{
 			width: 25%;
+			@media screen and (max-width: $breakSmall){
+				width: 100%;
+			}
 		}
 		.footerCommunity, .footerHelp, .footerFollow{
 			width: 16.66%;
+			@media screen and (max-width: $breakSmall){
+				width: 100%;
+				li{
+					display: inline-block;
+				}
+			}
 		}
 		.footerTweets{
 			.footerTweetsItem{
@@ -510,4 +884,363 @@ header{
 
 footer{
 	background: $colorMediumVeryDark;
+	padding: 20px 0;
+	color: $colorMedium;
+	text-align: center;
 }
+
+.headerAbout, .headerPrice{
+	background-color: $colorMediumLight;
+	padding: 20px 0;
+	text-align: center;
+	@media screen and (max-width: $breakSmall){
+		padding-top: $navHeight + 20;
+	}
+
+}
+
+.welcome{
+	.welcomeTagline{
+		text-align: center;
+		color: $colorMedium
+	}
+	.welcomeImg, .welcomeDescription{
+		margin: 30px 0;
+		width: calc(50% - 20px);
+		float:left;
+		@media screen and (max-width: $breakSmall){
+			width: 100%;
+			float: none;
+		}
+	}
+	img{
+		box-shadow: 0 0 10px #ddd;
+	}
+	.welcomeDescription{
+		margin-left: 20px;
+	}
+	ul{
+		margin-left: 20px;
+		line-height: 3rem;
+		color: $colorMedium;
+		li{
+			position: relative;
+		}
+		li:before{
+			position: absolute;
+			top: 0;
+			left: -20px;
+			font-family: FontAwesome;
+			content: "\f058";
+			color: $colorMain;
+		}
+	}
+}
+
+.aboutTestimonials{
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	@media screen and (max-width: $breakSmall){
+		width: 100%;
+	}
+	.aboutTestimonialsHeading{
+		font-size: 1.8rem;
+		font-weight: bold;
+		margin: 20px 0;
+	}
+	h4{
+		margin-top: 10px;
+	}
+	a{
+		color: $colorMedium;
+		&:hover{
+			color: $colorMain;
+		}
+	}
+	i{
+		font-size: 1rem;
+		padding: 3px;
+	}
+}
+
+.aboutTestimonialsItem{
+	display: none;
+}
+
+a.aboutTestimonialsActive{
+	color: $colorDark;
+	pointer-events: none;
+}
+
+.team{
+	.teamTitle{
+		background-color: $colorDark;
+		padding: 20px 0;
+		h1{
+			color: $colorLight;
+		}
+	}
+}
+.teamPeopleItem{
+	float:left;
+	width: 25%;
+	text-align: center;
+	@media screen and (max-width: $breakSmall){
+		width: 50%;
+	}
+}
+
+.teamPeoplePhoto:before{
+	content:"";
+	position: absolute;
+	z-index: 3;
+	height: 100%;
+	width: 100%;
+	left:0;
+	top:0;
+	background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 70%, rgba( 0, 0, 0, 0.5) ); 
+}
+
+.teamPeoplePhoto{
+	position: relative;
+	height: 21vw;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	color: $colorLight;
+	padding-bottom: 10px;
+	@media screen and (max-width: $breakSmall){
+		height: 210px;
+	}
+	@media screen and (max-width: $breakMobile){
+		height: 180px;
+	}
+	@media screen and (max-width: 420px){
+		height: 120px;
+	}
+	.teamPeopleItemTagline, .teamPeopleItemSocials, h4{
+		position: relative;
+		z-index: 5;
+	}
+	.teamPeopleItemSocials{
+		display: inline-block;
+		margin: 5px 0 0 0;
+		padding: 2px 12px;
+		padding-bottom: 0;
+		background: $colorLight;
+		a i{
+			color: $colorDark;
+			padding: 0 5px;
+			&:hover{
+				color: $colorMain;
+			}
+		}
+	}
+}
+
+#teamPeoplePhotoToggle1, #teamPeoplePhotoToggle2, #teamPeoplePhotoToggle3, #teamPeoplePhotoToggle4{
+	opacity: 0;
+	position: relative;
+	z-index: -999;
+	height: 0;
+}
+
+#teamPeoplePhoto1:hover > #teamPeoplePhotoToggle1,
+#teamPeoplePhoto2:hover > #teamPeoplePhotoToggle2,
+#teamPeoplePhoto3:hover > #teamPeoplePhotoToggle3,
+#teamPeoplePhoto4:hover > #teamPeoplePhotoToggle4
+{
+	opacity: 1;
+	height: 60px;
+	transition: all 0.5s ease;
+	z-index: 5;
+}
+
+#teamPeoplePhoto1{
+	background-image: url("../../assets/about1.jpg");
+}
+
+#teamPeoplePhoto2{
+	background-image: url("../../assets/about2.jpg");
+}
+
+#teamPeoplePhoto3{
+	background-image: url("../../assets/about3.jpg");
+}
+
+#teamPeoplePhoto4{
+	background-image: url("../../assets/about4.jpg");
+}
+
+.join{
+	background-color: $colorMain;
+	margin: 0 auto;
+	text-align: center;
+	p{
+		margin: 0 auto;
+		width: 50%;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+	.joinButton{
+		background-color: $colorLight;
+		&:hover{
+			background-color: $colorDark;
+			color: $colorMain;
+		}
+	}
+}
+
+.basic{
+	display: flex;
+	text-align: center;
+	text-transform: capitalize;
+	@media screen and (max-width: $breakSmall){
+		flex-direction: column;
+	}
+	.basicItem, .basicItemMid{
+		width: calc(33.33% - 20px);
+		border: 1px solid $colorMediumLight;
+		&:nth-of-type(2){
+			margin: 0 30px;
+		}
+		@media screen and (max-width: $breakSmall){
+			width: 100%;
+			&:nth-of-type(2){
+				margin: 0;
+			}
+			margin: 20px 0;
+		}
+		li, .basicPerMonth, h4{
+			padding: 10px 0;
+			border-bottom: 1px solid $colorMediumLight;
+		}
+		.basicPriceNum{
+			font-size: 3rem;
+			font-weight: bold;
+			position: relative;
+			top: 15px;
+		}
+		.basicPrice{
+			margin-bottom: 8px;
+		}
+		.basicPerMonth{
+			color: $colorMedium;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		.basicBuyNow{
+			margin: 20px 0;
+		}
+		.basicButton{
+			margin: 100px 0;
+			background-color: $colorDark;
+			color: $colorLight;
+			&:hover{
+				background-color: $colorMedium;
+			}
+		}
+	}
+	.basicItemMid{
+		.basicPrice, h4{
+			color: $colorMain;
+		}
+		.basicButton{
+			margin: 100px 0;
+			background-color: $colorMain;
+			color: $colorLight;
+			&:hover{
+				background-color: $colorMedium;
+			}
+		}
+	}
+}
+
+.plansBox{
+	text-align: center;
+	text-transform: capitalize;
+	.plansItem{
+		float: left;
+		background-color: $colorLight;
+		width: calc(25% - 15px);
+		margin-right: 20px;
+		box-shadow: 2px 3px 6px #eee;
+		border: 2px solid #eee;
+		@media screen and (max-width: $breakSmall){
+			float:none;
+			width: 100%;
+			margin: 20px 0;
+		}
+		&:hover{
+			border: 2px solid $colorMain;
+		}
+		&:nth-of-type(4){
+			margin: 0;
+		}
+		.plansPrice{
+			padding-top: 10px;
+			background-color: $colorMain;
+			color: $colorLight;
+		}
+		.plansPerMonth{
+			background-color: $colorMain;
+			padding-bottom: 24px;
+			color: $colorLight;
+		}
+		.plansPriceNum{
+			position: relative;
+			top: 6px;
+			font-size: 2.6rem;
+			font-weight: bold;
+		}
+		.plansPerMonth{
+			text-transform: uppercase;
+			padding-top: 5px;
+		}
+		h3{
+			display: inline-block;
+			padding: 2px 25px;
+			font-size: 1.3rem;
+			border-radius: 30px;
+			background-color: $colorLight;
+			box-shadow: 2px 3px 6px #eee;
+			margin-bottom: -30px;
+			position: relative;
+			bottom: 25px;
+		}
+		li{
+			padding: 6px 0;
+			&:nth-of-type(odd){
+				background-color: $colorMediumLight;
+			}
+		}
+		.plansStars{
+			padding: 10px 0;
+			i{
+				color: $colorMain;
+				&:last-child{
+					color: $colorMedium;
+				}
+			}
+		}
+		.plansButtonBox{
+			margin-bottom: 20px;
+		}
+		.plansButton{
+			background-color: $colorMain;
+			color: $colorLight;
+			&:hover{
+				background-color: $colorMedium;
+			}
+		}
+	}
+}
+
+
+
+
+
+

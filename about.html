@@ -21,26 +21,69 @@
 <body>
 
 <header>
-	<nav class="wrapper">
-		<div class="logo"><a href="#">Caelum</a></div>
-		<ul class="navList">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Courses</a></li>
-			<li><a href="#">Events</a></li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Pages</a></li>
-			<li><a href="#">Shortcodes</a></li>
-			<li><a href="#">Shop</a></li>
-		</ul>
-		<ul class="navList">
+	<nav id="desktopNavigation">
+		<div class="nav wrapper">
+			<div class="logo"><img src="assets/logo.png"><a href="#top">Caelum</a></div>
+			<ul class="navList">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="index.html#courses">Courses</a></li>
+				<li><a href="index.html#choose">Why Us?</a></li>
+				<li><a href="index.html#events">Events</a></li>
+				<li><a href="prices.html">Prices</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</div>
+		<ul class="navLogin navList">
 			<li><a href="#">Login</a></li>
-			<li class="navListRegister"><a href="#">Register</a></li>
+			<li><a href="#" class="button navListRegister">Register</a></li>
 		</ul>
 	</nav>
-	<div class="headerAbout wrapper">
+	<nav id="mobileNavigation">
+		<div class="logoMobile"><a href="index.html">Caelum</a></div>
+		<div class="navBurger">
+			<i class="fa fa-bars" aria-hidden="true" id="burgerIcon"></i>
+			<i class="fa fa-times" aria-hidden="true" id="closeIcon"></i>
+		</div>
+		<div class="navMobile">
+			<div class="nav wrapper">
+				<ul class="navList">
+					<li><a href="#courses">Courses</a></li>
+					<li><a href="#choose">Why Us?</a></li>
+					<li><a href="#events">Events</a></li>
+					<li><a href="/prices.html">Prices</a></li>
+					<li><a href="/about.html">About</a></li>
+				</ul>
+			</div>
+			<ul class="navLogin navList">
+				<li><a href="#">Login</a></li>
+				<li><a href="#" class="button navListRegister">Register</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="headerAbout">
 		<h1>About us</h1>
 	</div>
 </header>
+
+<section class="welcome wrapper clearfix">
+	<h1 class="h1BothLines">Welcome to caelum </h1>
+	<p class="welcomeTagline">Enjoy our free online courses, wherever you are and whenever you want. Access course content on mobile, tablet or desktop.</p>
+	<div class="welcomeImg">
+		<img src="assets/aboutwelcome.jpg">
+	</div>
+	<div class="welcomeDescription">
+		There are many variations of passages of Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas molestiae ea voluptatum, inventore vel soluta temporibus accusamus suscipit, iusto quidem assumenda veniam quia similique unde id qui dicta distinctio delectus!
+		<h3>Why Caelum is for you</h3>
+		Our conferences are designed to provide practical value to everybody involved. No theory, no assumptions, just things that worked (or failed) in real-life projects, and why. You'll learn:
+		<ul class="welcomeList">
+			<li>Lorem ipsum dolor sit amet</li>
+			<li>Consectetur adipisicing elit </li>
+			<li>Consequatur dolorum maiores at ullam</li>
+			<li>Cupiditate totam fugiat</li>
+			<li>A porro laboriosam enim</li>
+		</ul>
+	</div>
+</section>
 
 <section class="ourCourseOnline wrapper">
 	<div>
@@ -65,13 +108,15 @@
 	</div>
 </section>
 
-<section class="mission wrapper">
-	<aside class="missionBox">
-		<h1 class="h1RightLine">our mission</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad reiciendis, impedit dolor doloremque. Voluptates, odit sunt veritatis, eaque, praesentium, excepturi consequatur nesciunt enim blanditiis natus totam. Expedita modi maiores similique ut amet ex sit dolore quibusdam sequi, porro dolorum natus!
-		</p>
-	</aside>
+<section class="mission">
+	<div class="wrapper">
+		<aside class="missionBox">
+			<h1 class="h1RightLine">our mission</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad reiciendis, impedit dolor doloremque. Voluptates, odit sunt veritatis, eaque, praesentium, excepturi consequatur nesciunt enim blanditiis natus totam. Expedita modi maiores similique ut amet ex sit dolore quibusdam sequi, porro dolorum natus!
+			</p>
+		</aside>
+	</div>
 </section>
 
 <article class="numbers">
@@ -94,8 +139,8 @@
 </article>
 
 <section class="aboutTestimonials">
-	<div id="aboutTestimonials1">
-		<p>Caelum is great</p>
+	<div id="aboutTestimonials1" class="aboutTestimonialsItem">
+		<p class="aboutTestimonialsHeading">Caelum is great</p>
 		<p>
 			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis reprehenderit blanditiis recusandae asperiores cum, laborum, eligendi veritatis at, iusto in adipisci praesentium animi voluptatem atque expedita autem harum. Tenetur, amet."
 		</p>
@@ -104,57 +149,94 @@
 			photographer
 		</span>
 	</div>
+	<div id="aboutTestimonials2" class="aboutTestimonialsItem">
+		<p class="aboutTestimonialsHeading">Caelum is awesome</p>
+		<p>
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ut provident repudiandae ratione. Deleniti commodi distinctio minima magni ab, quia explicabo, inventore excepturi nisi officiis esse placeat dicta vitae unde!"
+		</p>
+		<h4>Rich Langle</h4>
+		<span class="aboutTestimonialsTagline">
+			developer
+		</span>
+	</div>
+	<div id="aboutTestimonials3" class="aboutTestimonialsItem">
+		<p class="aboutTestimonialsHeading">Caelum is boss</p>
+		<p>
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, porro, vel. Minus inventore blanditiis vel placeat nobis, fuga odio praesentium."
+		</p>
+		<h4>Richie Lang</h4>
+		<span class="aboutTestimonialsTagline">
+			designer
+		</span>
+	</div>
+	<div>
+		<a href="#aboutTestimonials1" class="aboutTestimonialsLink aboutTestimonialsActive"><i class="fa fa-circle" aria-hidden="true"></i></a>
+		<a href="#aboutTestimonials2" class="aboutTestimonialsLink"><i class="fa fa-circle" aria-hidden="true"></i></a>
+		<a href="#aboutTestimonials3" class="aboutTestimonialsLink"><i class="fa fa-circle" aria-hidden="true"></i></a>
+	</div>
 </section>
 
 <article class="team">
 	<div class="teamTitle">
-		<h1 class="h1RightLine">Meet our team</h1>
+		<h1 class="h1RightLine wrapper">Meet our team</h1>
 	</div>
-	<div class="teamPeople">
+	<div class="teamPeople clearfix">
 		<div class="teamPeopleItem">
-			<h4>Russ Weagly</h4>
-			<div id="teamPeopleItem1">
-				<span class="teamPeopleItemTagline">Teacher</span>
-				<div class="teamPeopleItemSocials">
-					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<div id="teamPeoplePhoto1" class="teamPeoplePhoto">
+				<h4>Russ Weagly</h4>
+				<div id="teamPeoplePhotoToggle1">
+					<p class="teamPeopleItemTagline">Teacher</p>
+					<div class="teamPeopleItemSocials">
+						<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- teamPeopleItem -->
 		<div class="teamPeopleItem">
-			<h4>Adam Handerson</h4>
-			<div id="teamPeopleItem2">
-				<span class="teamPeopleItemTagline">Writer</span>
-				<div class="teamPeopleItemSocials">
-					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<div id="teamPeoplePhoto2" class="teamPeoplePhoto">
+				<h4>Russ Weagly</h4>
+				<div id="teamPeoplePhotoToggle2">
+					<p class="teamPeopleItemTagline">Teacher</p>
+					<div class="teamPeopleItemSocials">
+						<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- teamPeopleItem -->
 		<div class="teamPeopleItem">
-			<h4>Tammy Pillers</h4>
-			<div id="teamPeopleItem3">
-				<span class="teamPeopleItemTagline">Software Engineer</span>
-				<div class="teamPeopleItemSocials">
-					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<div id="teamPeoplePhoto3" class="teamPeoplePhoto">
+				<h4>Russ Weagly</h4>
+				<div id="teamPeoplePhotoToggle3">
+					<p class="teamPeopleItemTagline">Teacher</p>
+					<div class="teamPeopleItemSocials">
+						<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- teamPeopleItem -->
 		<div class="teamPeopleItem">
-			<h4>Angus Williams</h4>
-			<div id="teamPeopleItem4">
-				<span class="teamPeopleItemTagline">Designer</span>
-				<div class="teamPeopleItemSocials">
-					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<div id="teamPeoplePhoto4" class="teamPeoplePhoto">
+				<h4>Russ Weagly</h4>
+				<div id="teamPeoplePhotoToggle4">
+					<p class="teamPeopleItemTagline">Teacher</p>
+					<div class="teamPeopleItemSocials">
+						<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- teamPeopleItem -->
 	</div>
 </article>
 
@@ -165,54 +247,56 @@
 	<span class="joinButton button">Join Now</span>
 </section>
 
-<section class="footer wrapper">
-	<div class="footerAbout">
-		<h4>About us</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem numquam, laboriosam a, aliquid molestiae officiis consequatur debitis id qui quod mollitia hic labore. </p>
-	</div>
-	<div class="footerCommunity">
-		<h4>community</h4>
-		<ul>
-			<li><a href="#">How it works</a></li>
-			<li><a href="#">News and media</a></li>
-			<li><a href="#">Usage policy</a></li>
-		</ul>
-	</div>
-	<div class="footerHelp">
-		<h4>help</h4>
-		<ul>
-			<li><a href="#">FAQ</a></li>
-			<li><a href="#">Contact us</a></li>
-			<li><a href="#">Site map</a></li>
-			<li><a href="#">Company details</a></li>
-			<li><a href="#">Careers</a></li>
-		</ul>
-	</div>
-	<div class="footerFollow">
-		<h4>follow us</h4>
-		<ul>
-			<li><a href="#">Facebook</a></li>
-			<li><a href="#">Twitter</a></li>
-			<li><a href="#">Pinterest</a></li>
-			<li><a href="#">Vimeo</a></li>
-			<li><a href="#">Youtube</a></li>
-		</ul>
-	</div>
-	<div class="footerTweets">
-		<h4>recent twitter</h4>
-		<div class="footerTweetsItem">
-			<i class="fa fa-twitter" aria-hidden="true"></i>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem assumenda, amet incidunt quaestinctio.</p>
+<section class="footer">
+	<div class="footerWrapper wrapper">
+		<div class="footerAbout">
+			<h4>About us</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem numquam, laboriosam a, aliquid molestiae officiis consequatur debitis id qui quod mollitia hic labore. </p>
 		</div>
-		<div class="footerTweetsItem">
-			<i class="fa fa-twitter" aria-hidden="true"></i>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi veniam qui quae debitis libero.</p>
+		<div class="footerCommunity">
+			<h4>community</h4>
+			<ul>
+				<li><a href="#">How it works</a></li>
+				<li><a href="#">News and media</a></li>
+				<li><a href="#">Usage policy</a></li>
+			</ul>
+		</div>
+		<div class="footerHelp">
+			<h4>help</h4>
+			<ul>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Contact us</a></li>
+				<li><a href="#">Site map</a></li>
+				<li><a href="#">Company details</a></li>
+				<li><a href="#">Careers</a></li>
+			</ul>
+		</div>
+		<div class="footerFollow">
+			<h4>follow us</h4>
+			<ul>
+				<li><a href="#">Facebook</a></li>
+				<li><a href="#">Twitter</a></li>
+				<li><a href="#">Pinterest</a></li>
+				<li><a href="#">Vimeo</a></li>
+				<li><a href="#">Youtube</a></li>
+			</ul>
+		</div>
+		<div class="footerTweets">
+			<h4>recent twitter</h4>
+			<div class="footerTweetsItem">
+				<i class="fa fa-twitter" aria-hidden="true"></i>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem assumenda, amet incidunt quaestinctio.</p>
+			</div>
+			<div class="footerTweetsItem">
+				<i class="fa fa-twitter" aria-hidden="true"></i>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi veniam qui quae debitis libero.</p>
+			</div>
 		</div>
 	</div>
 </section>
 
 <footer>
-	&copy:2017 Cealum. All rights reserved.
+	&copy 2017 Cealum. All rights reserved.
 </footer>
 
 <!-- jquery -->
