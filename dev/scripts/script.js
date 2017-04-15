@@ -1,4 +1,5 @@
 var app =[];
+
 var myNav = {}; 
 var choose = {};
 var news ={};
@@ -21,48 +22,7 @@ myNav.smoothScroll = function () {
 				return false;
 			}
 	};
-
 })
-};
-
-
-var navItems = $('.menu a');
-// gotta store link hrefs
-var navLinks = [];
-
-for (var i = 0; i < navItems.length; i++) {
-	// select link refs and push into array
-	myNav.href = $(navItems[i]).attr('href');
-	navLinks.push(myNav.href);
-}
-
-myNav.itemColorChange = function () {
-	//when scrolling
-	$(window).on('scroll', function () {
-		// get position of the window from top of page
-		myNav.windowPosition = $(window).scrollTop();
-		// get height of window
-		myNav.windowHeight = $(window).height();
-		// get height of document page
-		myNav.docHeight = $(document).height();
-		// make nav a current when href matches section id (when specific section is top of pg)
-		for (var i = 0; i < navLinks.length; i++) {
-			var sectionId = navLinks[i];
-			// get position of each section from top of page
-			myNav.sectionPosition = $(sectionId).offset().top;
-			//but like, not realllyyy top of page
-			myNav.sectionPosition -= 100;
-			// get height of each section
-			myNav.sectionHeight = $(sectionId).height();
-
-			// if top of window is within each section, set that section as current
-			if (myNav.windowPosition >= myNav.sectionPosition && myNav.windowPosition < myNav.sectionPosition + myNav.sectionHeight) {
-				$(`a[href="${sectionId}"]`).addClass('current');
-			} else {
-				$(`a[href="${sectionId}"]`).removeClass('current');
-			} 
-		}; 
-	});
 };
 
 choose.pages = function(){
@@ -119,7 +79,6 @@ mobileNav.slide = function(){
 
 
 app.init = function () {
-	myNav.itemColorChange();
 	myNav.smoothScroll();
 	choose.pages();
 	news.pages();
