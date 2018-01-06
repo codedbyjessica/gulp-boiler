@@ -1,5 +1,5 @@
 {
-  "name": "caelum",
+  "name": "gulp-boiler",
   "version": "1.0.0",
   "main": "gulpfile.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
+    "gulp-notify": "^3.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
     "plumber": "^0.4.8",
@@ -26,13 +27,5 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/codedbyjessica/caelumPSD.git"
-  },
-  "bugs": {
-    "url": "https://github.com/codedbyjessica/caelumPSD/issues"
-  },
-  "homepage": "https://github.com/codedbyjessica/caelumPSD#readme",
   "description": ""
 }
