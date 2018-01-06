@@ -27,5 +27,13 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {},
-  "description": ""
+  "description": "simple gulp boiler with scss, babel, browsersync",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedbyjessica/gulp-boiler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codedbyjessica/gulp-boiler/issues"
+  },
+  "homepage": "https://github.com/codedbyjessica/gulp-boiler#readme"
 }
